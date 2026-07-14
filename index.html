@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pouls — Surveillance & pages de statut pour les makers</title>
+<meta name="description" content="Pouls surveille vos sites et API depuis 12 régions, vous alerte avant vos clients, et publie une page de statut soignée. Démo de site — MatgordFR.">
+<meta name="theme-color" content="#F4F5F2">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pouls — surveillance & pages de statut">
+<meta property="og:description" content="Sachez avant vos clients quand quelque chose tombe.">
+<link rel="stylesheet" href="assets/css/statut.css">
+</head>
+<body>
+
+<a class="skip" href="#hero">Aller au contenu</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#hero" aria-label="Pouls — accueil">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 20" width="30" height="19"><path d="M1 11h6l3-8 5 15 3-9 2 4h11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-word">Pouls</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation">
+      <a href="#features">Fonctionnement</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#tarifs" class="ghost-link">Se connecter</a>
+      <a href="#tarifs" class="btn btn-primary">Commencer — gratuit</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="pill-eyebrow" data-reveal><span class="live-dot" aria-hidden="true"></span>Surveillance depuis 12 régions</p>
+        <h1 class="hero-title" data-reveal>Sachez qu'un service est tombé <em>avant</em> vos clients.</h1>
+        <p class="hero-lede" data-reveal>Pouls teste vos sites et API toutes les 30 secondes, vous prévient sur Discord, e-mail ou SMS en moins d'une minute, et publie une page de statut dont vous n'aurez pas honte.</p>
+        <div class="hero-cta" data-reveal>
+          <a class="btn btn-primary btn-lg" href="#tarifs">Commencer gratuitement</a>
+          <a class="btn btn-ghost btn-lg" href="#board">Voir une page de statut ▸</a>
+        </div>
+        <p class="hero-trust" data-reveal>Gratuit jusqu'à 5 moniteurs · sans carte bancaire · 2 min pour démarrer</p>
+      </div>
+
+      <!-- SIGNATURE : board de statut vivant -->
+      <aside class="board" id="board" data-reveal aria-label="Aperçu d'un tableau de statut (démo)">
+        <div class="board-head">
+          <div>
+            <p class="board-title">Tous les systèmes</p>
+            <p class="board-sub" id="boardState"><span class="s-dot up" aria-hidden="true"></span>Opérationnel</p>
+          </div>
+          <div class="board-uptime"><span class="up-n" id="uptimeN">99,98%</span><span class="up-l">90 jours</span></div>
+        </div>
+
+        <div class="pulse-wrap">
+          <svg class="pulse" id="pulse" viewBox="0 0 320 70" preserveAspectRatio="none" aria-hidden="true">
+            <polyline id="pulseLine" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points=""/>
+            <circle id="pulseDot" r="3.4" fill="currentColor" cx="0" cy="35"/>
+          </svg>
+          <span class="pulse-lab">latence · <b id="latVal">128</b> ms</span>
+        </div>
+
+        <ul class="services" id="services">
+          <li><span class="svc-name">API</span><span class="mono svc-lat">96 ms</span><span class="bars" data-bars="0"></span><span class="pill up">OK</span></li>
+          <li><span class="svc-name">Site web</span><span class="mono svc-lat">142 ms</span><span class="bars" data-bars="1"></span><span class="pill up">OK</span></li>
+          <li><span class="svc-name">Base de données</span><span class="mono svc-lat">— ms</span><span class="bars" data-bars="2"></span><span class="pill warn">Lent</span></li>
+          <li><span class="svc-name">Webhooks</span><span class="mono svc-lat">73 ms</span><span class="bars" data-bars="3"></span><span class="pill up">OK</span></li>
+        </ul>
+        <p class="board-foot mono">dernier incident : il y a 23 jours · résolu en 6 min</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ LOGOS / bandeau ============ -->
+  <section class="strip">
+    <div class="wrap strip-in">
+      <p>Ce que Pouls garde à l'œil, en continu&nbsp;:</p>
+      <ul>
+        <li>Sites web</li><li>API &amp; endpoints</li><li>Cron &amp; tâches</li><li>Certificats SSL</li><li>Noms de domaine</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="features section" id="features">
+    <div class="wrap">
+      <p class="kicker" data-reveal>Ce que ça fait</p>
+      <h2 class="section-title" data-reveal>Tout ce qu'il faut pour dormir tranquille.</h2>
+      <div class="feat-grid">
+        <article class="feat" data-reveal>
+          <span class="f-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="16" cy="16" r="3" fill="currentColor"/><path d="M16 5v4M16 23v4M5 16h4M23 16h4" stroke="currentColor" stroke-width="2.2"/></svg></span>
+          <h3>12 régions, en parallèle</h3>
+          <p>On teste depuis plusieurs continents à la fois. Une panne n'est déclarée que si plusieurs régions la confirment — zéro fausse alerte à 3 h du matin.</p>
+        </article>
+        <article class="feat" data-reveal>
+          <span class="f-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4c-5 0-8 3-8 9 0 5-2 7-3 8h22c-1-1-3-3-3-8 0-6-3-9-8-9Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 25a3 3 0 0 0 6 0" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></span>
+          <h3>Des alertes qui arrivent</h3>
+          <p>Discord, Slack, e-mail, SMS, webhook. Escalade si personne n'accuse réception. Regroupement intelligent pour ne pas se faire spammer pendant un gros incident.</p>
+        </article>
+        <article class="feat" data-reveal>
+          <span class="f-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M5 12h22M9 18h7M9 21h4" stroke="currentColor" stroke-width="2.2"/><circle cx="22" cy="19.5" r="2" fill="currentColor"/></svg></span>
+          <h3>Une page de statut soignée</h3>
+          <p>Publique, sur votre domaine, à votre marque. Vos clients la consultent au lieu de vous écrire. Historique, incidents et maintenances planifiées inclus.</p>
+        </article>
+        <article class="feat" data-reveal>
+          <span class="f-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 20l6-6 5 5 9-11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 8h-5M26 8v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+          <h3>Latence &amp; tendances</h3>
+          <p>Pas juste « en ligne / hors ligne ». Le temps de réponse, région par région, avec l'historique — pour repérer une dégradation avant la panne.</p>
+        </article>
+        <article class="feat" data-reveal>
+          <span class="f-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="14" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M11 14v-3a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="16" cy="20" r="1.6" fill="currentColor"/></svg></span>
+          <h3>SSL &amp; domaines surveillés</h3>
+          <p>On vous prévient <em>avant</em> qu'un certificat expire ou qu'un domaine arrive à échéance. Fini le site en HTTPS cassé un dimanche soir.</p>
+        </article>
+        <article class="feat" data-reveal>
+          <span class="f-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4v6M16 22v6M4 16h6M22 16h6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="16" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 13v3l2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <h3>Post-mortems en un clic</h3>
+          <p>Chaque incident garde sa chronologie exacte : détecté, confirmé, résolu. De quoi écrire un compte-rendu honnête sans fouiller dans les logs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SETUP (mono) ============ -->
+  <section class="setup section" id="setup">
+    <div class="wrap setup-in">
+      <div class="setup-copy" data-reveal>
+        <p class="kicker">30 secondes, promis</p>
+        <h2 class="section-title">Un moniteur en<br>une ligne.</h2>
+        <p class="setup-lede">En ligne de commande ou en trois clics dans l'interface. Pas de config à rallonge, pas d'agent à installer sur vos serveurs.</p>
+        <ul class="setup-check">
+          <li>Aucun agent à déployer</li>
+          <li>Import depuis un fichier ou l'API</li>
+          <li>Modèles prêts pour Vercel, Fly, un VPS…</li>
+        </ul>
+      </div>
+      <div class="terminal" data-reveal aria-hidden="true">
+        <div class="term-bar"><span></span><span></span><span></span><b>pouls — bash</b></div>
+        <pre class="term-body mono"><code><span class="c-com"># surveiller une API, alerter sur Discord</span>
+<span class="c-cmd">pouls</span> watch https://api.monsite.fr \
+  <span class="c-flag">--toutes</span> 30s \
+  <span class="c-flag">--alerte</span> discord,email
+<span class="c-ok">✓</span> Moniteur « api.monsite.fr » actif
+  12 régions · 1re vérif dans 4s
+<span class="c-com"># publier la page de statut</span>
+<span class="c-cmd">pouls</span> statut --publier --domaine statut.monsite.fr
+<span class="c-ok">✓</span> En ligne → https://statut.monsite.fr</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TARIFS ============ -->
+  <section class="tarifs section" id="tarifs">
+    <div class="wrap">
+      <p class="kicker center" data-reveal>Tarifs</p>
+      <h2 class="section-title center" data-reveal>Gratuit pour commencer.<br>Honnête quand vous grandissez.</h2>
+
+      <div class="billing" data-reveal role="group" aria-label="Choisir la facturation">
+        <button class="bill-btn is-active" id="billMonthly" type="button" aria-pressed="true">Mensuel</button>
+        <button class="bill-btn" id="billYearly" type="button" aria-pressed="false">Annuel <span class="save">−2 mois</span></button>
+      </div>
+
+      <div class="plans">
+        <article class="plan" data-reveal>
+          <h3 class="plan-name">Solo</h3>
+          <p class="plan-price"><span class="amount" data-m="0" data-y="0">0</span><span class="per">€ / mois</span></p>
+          <p class="plan-desc">Pour un projet perso ou un side-project.</p>
+          <ul class="plan-feats">
+            <li>5 moniteurs</li>
+            <li>Vérif toutes les 3 min</li>
+            <li>Alertes e-mail &amp; Discord</li>
+            <li>1 page de statut publique</li>
+            <li>30 jours d'historique</li>
+          </ul>
+          <a class="btn btn-ghost plan-cta" href="#hero">Créer un compte</a>
+        </article>
+
+        <article class="plan is-featured" data-reveal>
+          <span class="plan-badge">le plus choisi</span>
+          <h3 class="plan-name">Équipe</h3>
+          <p class="plan-price"><span class="amount" data-m="12" data-y="10">12</span><span class="per">€ / mois</span></p>
+          <p class="plan-desc">Pour un produit qui a de vrais utilisateurs.</p>
+          <ul class="plan-feats">
+            <li>50 moniteurs</li>
+            <li>Vérif toutes les 30 s · 12 régions</li>
+            <li>SMS, Slack, webhooks &amp; escalade</li>
+            <li>Pages de statut à votre marque</li>
+            <li>1 an d'historique · SSL &amp; domaines</li>
+          </ul>
+          <a class="btn btn-primary plan-cta" href="#hero">Essayer 14 jours</a>
+        </article>
+
+        <article class="plan" data-reveal>
+          <h3 class="plan-name">Business</h3>
+          <p class="plan-price"><span class="amount" data-m="39" data-y="33">39</span><span class="per">€ / mois</span></p>
+          <p class="plan-desc">Pour une équipe qui a des engagements (SLA).</p>
+          <ul class="plan-feats">
+            <li>Moniteurs illimités</li>
+            <li>Vérif toutes les 10 s</li>
+            <li>Rapports SLA &amp; export</li>
+            <li>Sous-comptes &amp; rôles</li>
+            <li>Support prioritaire</li>
+          </ul>
+          <a class="btn btn-ghost plan-cta" href="#hero">Nous contacter</a>
+        </article>
+      </div>
+      <p class="tarifs-fine center">Prix de démonstration. Tout est fictif — aucun paiement n'est traité sur ce site.</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq section" id="faq">
+    <div class="wrap faq-in">
+      <div class="faq-head" data-reveal>
+        <p class="kicker">FAQ</p>
+        <h2 class="section-title">Les questions<br>qu'on nous pose.</h2>
+        <p class="faq-note">Une autre en tête ? <a href="#hero">Écrivez-nous</a> — on répond vite.</p>
+      </div>
+      <div class="faq-list" data-reveal>
+        <details class="qa"><summary>C'est quoi, une « page de statut » ?<span class="chev" aria-hidden="true"></span></summary><p>Une page publique qui montre en temps réel si vos services fonctionnent. Vos utilisateurs la consultent au lieu de vous écrire quand quelque chose cloche — et vous y publiez vos incidents et maintenances.</p></details>
+        <details class="qa"><summary>Est-ce que je dois installer quelque chose sur mon serveur ?<span class="chev" aria-hidden="true"></span></summary><p>Non. Pouls teste vos services depuis l'extérieur, comme le ferait un vrai visiteur. Aucun agent, aucune dépendance à ajouter à votre code.</p></details>
+        <details class="qa"><summary>Vous m'alertez sur quels canaux ?<span class="chev" aria-hidden="true"></span></summary><p>E-mail et Discord dès le plan gratuit ; SMS, Slack, Telegram, webhooks et escalade à partir du plan Équipe. Vous choisissez qui est prévenu, et dans quel ordre.</p></details>
+        <details class="qa"><summary>Comment vous évitez les fausses alertes ?<span class="chev" aria-hidden="true"></span></summary><p>Une panne n'est confirmée que si plusieurs régions la constatent en même temps. Un simple hoquet réseau depuis un seul point ne vous réveillera pas.</p></details>
+        <details class="qa"><summary>Je peux partir avec mes données ?<span class="chev" aria-hidden="true"></span></summary><p>Oui. Export complet de votre historique en CSV ou via l'API, à tout moment. Pas de verrouillage : vos données sont à vous.</p></details>
+        <details class="qa"><summary>Le plan gratuit, c'est un piège ?<span class="chev" aria-hidden="true"></span></summary><p>Non — 5 moniteurs, gratuits pour toujours, sans carte bancaire. Beaucoup de side-projects n'ont jamais besoin de plus, et c'est très bien comme ça.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta-band">
+    <div class="wrap cta-in" data-reveal>
+      <h2>La prochaine panne, vous la verrez venir.</h2>
+      <a class="btn btn-primary btn-lg" href="#hero">Commencer gratuitement</a>
+      <p class="cta-fine">5 moniteurs offerts · sans carte bancaire</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="brand-word">Pouls</span>
+      <p>Surveillance &amp; pages de statut pour les makers et les petites équipes.</p>
+    </div>
+    <p class="foot-demo mono">Site de démonstration — produit et données fictifs.<br>Conçu &amp; codé par <a href="https://github.com/MatgordFR" rel="noopener">MatgordFR</a> · <a href="https://matgord.com" rel="noopener">matgord.com</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/statut.js" defer></script>
+</body>
+</html>
