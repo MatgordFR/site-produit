@@ -14,6 +14,35 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------- hero : texte animé (révélation mot à mot) ---------- */
+  var heroTitle = document.querySelector(".hero-title");
+  if (heroTitle && !reduce) {
+    var nodes = Array.prototype.slice.call(heroTitle.childNodes);
+    var frag = document.createDocumentFragment();
+    var wi = 0;
+    nodes.forEach(function (node) {
+      if (node.nodeType === 3) { // texte : découper en mots
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (part === "") return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var s = document.createElement("span");
+          s.className = "word";
+          s.style.setProperty("--i", wi++);
+          s.textContent = part;
+          frag.appendChild(s);
+        });
+      } else if (node.nodeType === 1) { // élément (<em>avant</em>) : un mot à part entière
+        node.classList.add("word");
+        node.style.setProperty("--i", wi++);
+        frag.appendChild(node);
+      } else {
+        frag.appendChild(node);
+      }
+    });
+    while (heroTitle.firstChild) heroTitle.removeChild(heroTitle.firstChild);
+    heroTitle.appendChild(frag);
+  }
+
   /* ---------- barres uptime ---------- */
   // index → petites anomalies (indice 2 = base de données, "Lent")
   var faults = { "0": {}, "1": { "26": "warn" }, "2": { "22": "warn", "24": "warn", "27": "down", "28": "warn" }, "3": {} };

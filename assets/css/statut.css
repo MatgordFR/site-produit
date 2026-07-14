@@ -94,6 +94,12 @@ ul{margin:0; padding:0; list-style:none}
 .hero-lede{font-size:clamp(1.06rem,1.4vw,1.2rem); color:var(--ink-2); max-width:48ch; margin-top:22px}
 .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px}
 .hero-trust{margin-top:20px; font-size:.86rem; color:var(--ink-faint)}
+/* ---- hero : texte animé (révélation mot à mot + soulignement de « avant ») ---- */
+.hero-title .word{display:inline-block; opacity:0; transform:translateY(.5em); animation:wordIn .55s cubic-bezier(.2,.8,.2,1) both; animation-delay:calc(var(--i,0)*.055s)}
+@keyframes wordIn{to{opacity:1; transform:none}}
+.hero-title em{position:relative}
+.hero-title em::after{content:""; position:absolute; left:0; right:0; bottom:-.06em; height:2px; border-radius:2px; background:var(--brand); transform:scaleX(0); transform-origin:left; animation:underlineIn .5s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:1s}
+@keyframes underlineIn{to{transform:scaleX(1)}}
 
 /* ---- board (signature) ---- */
 .board{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:22px; box-shadow:var(--shadow)}
