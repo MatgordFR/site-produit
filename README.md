@@ -27,10 +27,14 @@
 Une **landing produit / SaaS** complète, avec ce qui fait vraiment convertir :
 
 - **Un board de statut vivant** — courbe de latence qui défile en temps réel, barres d'uptime sur 90 jours, pastilles OK / Lent / KO, taux d'uptime — la signature de la page.
+- **Un titre animé** — révélation du titre mot à mot au chargement + soulignement du mot-clé.
+- **« Comment ça marche »** — les 3 étapes (connecter → surveiller → alerter), en une lecture.
+- **Un exemple de page de statut** — l'output réel du produit : composants, statuts et historique d'incidents.
+- **Des intégrations** — les canaux d'alerte (Discord, Slack, e-mail, SMS, webhooks) et ce qui est surveillé.
+- **Des avis** — témoignages de démonstration (personnages fictifs, annoncés comme tels).
 - **Un pricing qui bascule** — mensuel ↔ annuel, les montants et le badge « −2 mois » se mettent à jour au clic.
 - **Une FAQ dépliable** — en `<details>` natif (accessible, sans JS superflu).
 - **Un bloc terminal** — mise en place « en une ligne », coloration syntaxique en JetBrains Mono.
-- Features, bandeau, section installation, CTA — la structure d'une vraie page produit.
 
 ## 🎨 Le craft
 
@@ -52,8 +56,8 @@ Aucun framework, aucune librairie, aucun CDN. ~100 Ko, polices comprises.
 
 ```
 index.html             → la page
-assets/css/statut.css  → design system + board + pricing + FAQ
-assets/js/statut.js    → pulse de latence + barres uptime + bascule tarifs
+assets/css/statut.css  → design system + board + sections (étapes, statut, intégrations, avis) + pricing + FAQ
+assets/js/statut.js    → titre animé + pulse de latence + barres uptime + bascule tarifs
 assets/fonts/          → Space Grotesk + JetBrains Mono (auto-hébergées)
 ```
 
